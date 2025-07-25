@@ -126,7 +126,7 @@ struct ServiceSelectorView: View {
                 ForEach(groupedServices.keys.sorted { $0.rawValue < $1.rawValue }, id: \.self) { category in
                     Section(header: CategorySectionHeader(category: category)) {
                         ForEach(groupedServices[category] ?? []) { service in
-                            ServiceRow(service: service) {
+                            ServiceSelectorRow(service: service) {
                                 onServiceSelected(service)
                                 dismiss()
                             }
@@ -185,7 +185,7 @@ struct CategorySectionHeader: View {
     }
 }
 
-struct ServiceRow: View {
+struct ServiceSelectorRow: View {
     let service: ServiceItem
     let onSelect: () -> Void
     
