@@ -85,7 +85,7 @@ struct QuotationDetailView_macOS: View {
     
     private var clientInfoSection: some View {
         VStack(alignment: .leading, spacing: 16) {
-            SectionHeader(title: "Client Information", icon: "person.fill")
+            MacOSSectionHeader(title: "Client Information", icon: "person.fill")
             
             VStack(spacing: 12) {
                 FormField(title: "Client Name", text: $quotation.clientName)
@@ -97,7 +97,7 @@ struct QuotationDetailView_macOS: View {
     
     private var eventDetailsSection: some View {
         VStack(alignment: .leading, spacing: 16) {
-            SectionHeader(title: "Event Details", icon: "heart.fill")
+            MacOSSectionHeader(title: "Event Details", icon: "heart.fill")
             
             VStack(spacing: 12) {
                 HStack {
@@ -141,7 +141,7 @@ struct QuotationDetailView_macOS: View {
     
     private var pricingSection: some View {
         VStack(alignment: .leading, spacing: 16) {
-            SectionHeader(title: "Pricing", icon: "indianrupeesign.circle.fill")
+            MacOSSectionHeader(title: "Pricing", icon: "indianrupeesign.circle.fill")
             
             VStack(spacing: 12) {
                 HStack {
@@ -179,7 +179,7 @@ struct QuotationDetailView_macOS: View {
     
     private var notesSection: some View {
         VStack(alignment: .leading, spacing: 16) {
-            SectionHeader(title: "Notes", icon: "note.text")
+            MacOSSectionHeader(title: "Notes", icon: "note.text")
             
             TextEditor(text: $quotation.notes)
                 .font(.body)
@@ -251,7 +251,7 @@ struct QuotationDetailView_macOS: View {
         ScrollView {
             LazyVStack(spacing: 1) {
                 ForEach(quotation.items) { item in
-                    ServiceItemRow(
+                    MacOSServiceItemRow(
                         item: item,
                         onUpdate: { updatedItem in
                             updateService(updatedItem)
@@ -275,10 +275,10 @@ struct QuotationDetailView_macOS: View {
             }
             
             VStack(spacing: 8) {
-                PricingRow(label: "Subtotal", amount: quotation.subtotal)
+                MacOSPricingRow(label: "Subtotal", amount: quotation.subtotal)
                 
                 if quotation.discountPercentage > 0 {
-                    PricingRow(
+                    MacOSPricingRow(
                         label: "Discount (\(String(format: "%.1f", quotation.discountPercentage))%)",
                         amount: -quotation.discountAmount,
                         color: .red
@@ -286,10 +286,10 @@ struct QuotationDetailView_macOS: View {
                 }
                 
                 if quotation.additionalFees > 0 {
-                    PricingRow(label: "Additional Fees", amount: quotation.additionalFees)
+                    MacOSPricingRow(label: "Additional Fees", amount: quotation.additionalFees)
                 }
                 
-                PricingRow(
+                MacOSPricingRow(
                     label: "Tax (\(String(format: "%.1f", quotation.taxPercentage))%)",
                     amount: quotation.taxAmount
                 )
@@ -362,7 +362,7 @@ struct FormField: View {
     }
 }
 
-struct SectionHeader: View {
+struct MacOSSectionHeader: View {
     let title: String
     let icon: String
     
@@ -378,7 +378,7 @@ struct SectionHeader: View {
     }
 }
 
-struct ServiceItemRow: View {
+struct MacOSServiceItemRow: View {
     let item: QuoteItem
     let onUpdate: (QuoteItem) -> Void
     let onRemove: () -> Void
@@ -471,7 +471,7 @@ struct ServiceItemRow: View {
     }
 }
 
-struct PricingRow: View {
+struct MacOSPricingRow: View {
     let label: String
     let amount: Double
     let color: Color
@@ -494,6 +494,53 @@ struct PricingRow: View {
                 .fontWeight(.medium)
                 .foregroundColor(color)
         }
+    }
+}
+
+struct ExportView: View {
+    let text: String
+    @Environment(\.dismiss) private var dismiss
+    
+    var body: some View {
+        VStack(spacing: 20) {
+            HStack {
+                Text("Export Quotation")
+                    .font(.title2)
+                    .fontWeight(.semibold)
+                
+                Spacer()
+                
+                Button("Done") {
+                    dismiss()
+                }
+            }
+            
+            ScrollView {
+                Text(text)
+                    .font(.system(.body, design: .monospaced))
+                    .textSelection(.enabled)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding()
+                    .background(Color(NSColor.textBackgroundColor))
+                    .cornerRadius(8)
+            }
+            
+            HStack {
+                Button("Copy to Clipboard") {
+                    NSPasteboard.general.clearContents()
+                    NSPasteboard.general.setString(text, forType: .string)
+                }
+                .buttonStyle(.bordered)
+                
+                Spacer()
+                
+                Button("Save as PDF") {
+                    // TODO: Implement PDF export
+                }
+                .buttonStyle(.borderedProminent)
+            }
+        }
+        .padding(24)
     }
 }
 

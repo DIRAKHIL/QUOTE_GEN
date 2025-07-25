@@ -102,28 +102,28 @@ struct QuotationListView_macOS: View {
                 
                 // Statistics Cards
                 LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 2), spacing: 12) {
-                    StatCard(
+                    MacOSStatCard(
                         title: "Total Quotes",
                         value: "\(quotationManager.quotations.count)",
                         icon: "doc.text",
                         color: .blue
                     )
                     
-                    StatCard(
+                    MacOSStatCard(
                         title: "This Month",
                         value: "\(quotationsThisMonth)",
                         icon: "calendar",
                         color: .green
                     )
                     
-                    StatCard(
+                    MacOSStatCard(
                         title: "Finalized",
                         value: "\(finalizedQuotations)",
                         icon: "checkmark.seal",
                         color: .orange
                     )
                     
-                    StatCard(
+                    MacOSStatCard(
                         title: "Total Value",
                         value: "₹\(String(format: "%.0f", totalValue))",
                         icon: "indianrupeesign.circle",
@@ -180,7 +180,7 @@ struct QuotationListView_macOS: View {
         ScrollView {
             LazyVStack(spacing: 1) {
                 ForEach(filteredAndSortedQuotations) { quotation in
-                    QuotationRowView(
+                    MacOSQuotationRowView(
                         quotation: quotation,
                         isSelected: selectedQuotation?.id == quotation.id
                     ) {
@@ -262,7 +262,7 @@ struct QuotationListView_macOS: View {
     }
 }
 
-struct QuotationRowView: View {
+struct MacOSQuotationRowView: View {
     let quotation: Quotation
     let isSelected: Bool
     let onSelect: () -> Void
@@ -461,7 +461,7 @@ struct QuotationPreviewView: View {
     }
 }
 
-struct StatCard: View {
+struct MacOSStatCard: View {
     let title: String
     let value: String
     let icon: String
