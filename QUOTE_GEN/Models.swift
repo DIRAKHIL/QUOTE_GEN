@@ -68,7 +68,7 @@ struct ServiceItem: Identifiable, Codable, Hashable {
 }
 
 // MARK: - Quote Item Model
-struct QuoteItem: Identifiable, Codable {
+struct QuoteItem: Identifiable, Codable, Hashable {
     let id = UUID()
     let serviceItem: ServiceItem
     var quantity: Int
@@ -82,6 +82,15 @@ struct QuoteItem: Identifiable, Codable {
     
     enum CodingKeys: String, CodingKey {
         case serviceItem, quantity, customPrice, notes
+    }
+    
+    // MARK: - Hashable Conformance
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+    
+    static func == (lhs: QuoteItem, rhs: QuoteItem) -> Bool {
+        return lhs.id == rhs.id
     }
 }
 
@@ -121,7 +130,7 @@ enum EventType: String, CaseIterable, Identifiable, Codable {
 }
 
 // MARK: - Quotation Model
-struct Quotation: Identifiable, Codable {
+struct Quotation: Identifiable, Codable, Hashable {
     let id = UUID()
     var clientName: String
     var clientPhone: String
@@ -161,6 +170,15 @@ struct Quotation: Identifiable, Codable {
     enum CodingKeys: String, CodingKey {
         case clientName, clientPhone, clientEmail, eventType, eventDate, venue, guestCount
         case items, discountPercentage, additionalFees, taxPercentage, notes, createdDate, isFinalized
+    }
+    
+    // MARK: - Hashable Conformance
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+    
+    static func == (lhs: Quotation, rhs: Quotation) -> Bool {
+        return lhs.id == rhs.id
     }
 }
 
