@@ -15,7 +15,7 @@ struct QuotationDetailView: View {
     @State var quotation: Quotation
     @State private var showingServiceSelector = false
     @State private var showingExportSheet = false
-    @State private var showingAIRecommendations = false
+
     @State private var exportText = ""
     
     var body: some View {
@@ -71,11 +71,7 @@ struct QuotationDetailView: View {
                     addService(serviceItem)
                 }
             }
-            .sheet(isPresented: $showingAIRecommendations) {
-                AIRecommendationsView(quotation: quotation) { serviceItem, quantity in
-                    addServiceWithQuantity(serviceItem, quantity: quantity)
-                }
-            }
+
             .sheet(isPresented: $showingExportSheet) {
                 ExportView(text: exportText)
             }
@@ -143,19 +139,7 @@ struct QuotationDetailView: View {
                 SectionHeader(title: "Services", icon: "list.bullet")
                 Spacer()
                 
-                Button(action: { showingAIRecommendations = true }) {
-                    HStack(spacing: 4) {
-                        Image(systemName: "brain.head.profile")
-                        Text("AI")
-                    }
-                    .font(.caption)
-                    .padding(.horizontal, 8)
-                    .padding(.vertical, 4)
-                    .background(Color.purple.opacity(0.2))
-                    .foregroundColor(.purple)
-                    .cornerRadius(6)
-                }
-                
+
                 Button(action: { showingServiceSelector = true }) {
                     Image(systemName: "plus.circle.fill")
                         .font(.title2)
@@ -277,14 +261,7 @@ struct QuotationDetailView: View {
         }
     }
     
-    private func addServiceWithQuantity(_ serviceItem: ServiceItem, quantity: Int) {
-        quotationManager.currentQuotation = quotation
-        quotationManager.addItemToQuotation(serviceItem, quantity: quantity)
-        if let updated = quotationManager.currentQuotation {
-            quotation = updated
-        }
-    }
-    
+
     private func updateService(_ item: QuoteItem) {
         if let index = quotation.items.firstIndex(where: { $0.id == item.id }) {
             quotation.items[index] = item
