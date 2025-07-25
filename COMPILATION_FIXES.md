@@ -83,6 +83,13 @@ func addQuotation(_ quotation: Quotation) {
 
 Each view is now defined only once in its dedicated file.
 
+### 6. ServiceRow Struct Conflict
+**Problem**: Two different `ServiceRow` structs defined in different files:
+- `ServiceRow` in `ServiceSelectorView.swift` (for service selection interface)
+- `ServiceRow` in `ServicesView.swift` (for service catalog display)
+
+**Solution**: Renamed the struct in `ServiceSelectorView.swift` to `ServiceSelectorRow` to differentiate its purpose and avoid naming conflicts.
+
 ## Technical Improvements
 
 ### 1. Modern SwiftUI Patterns
@@ -125,6 +132,7 @@ Each view is now defined only once in its dedicated file.
 ✅ **Complete feature set available**
 ✅ **Duplicate struct definitions removed**
 ✅ **Ambiguous type conflicts resolved**
+✅ **All struct names are unique across project**
 
 ## Next Steps
 
