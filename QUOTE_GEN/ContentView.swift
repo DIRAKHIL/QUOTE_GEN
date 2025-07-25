@@ -9,8 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        QuotationListView_macOS()
-            .frame(minWidth: 1000, minHeight: 700)
+        EnhancedQuotationApp()
+            .frame(minWidth: 1200, minHeight: 800)
     }
 }
 
