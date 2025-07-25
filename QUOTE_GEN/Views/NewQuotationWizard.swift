@@ -562,29 +562,7 @@ struct ReviewSection<Content: View>: View {
     }
 }
 
-struct SettingsView: View {
-    @Environment(\.dismiss) private var dismiss
-    
-    var body: some View {
-        VStack(spacing: 20) {
-            Text("Settings")
-                .font(.title)
-                .fontWeight(.bold)
-            
-            Text("App settings and preferences")
-                .foregroundColor(.secondary)
-            
-            Spacer()
-            
-            Button("Close") {
-                dismiss()
-            }
-            .buttonStyle(.borderedProminent)
-        }
-        .padding(40)
-        .frame(width: 400, height: 300)
-    }
-}
+// Note: SettingsView is now implemented in a separate file
 
 #Preview {
     NewQuotationWizard(quotationManager: QuotationManager())

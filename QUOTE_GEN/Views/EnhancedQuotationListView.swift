@@ -340,35 +340,7 @@ struct EnhancedQuotationCard: View {
 }
 
 // MARK: - Supporting Views for other sections
-struct ClientsView: View {
-    var body: some View {
-        ContentUnavailableView(
-            "Clients Management",
-            systemImage: "person.2.fill",
-            description: Text("Client management features coming soon")
-        )
-    }
-}
-
-struct ServicesView: View {
-    var body: some View {
-        ContentUnavailableView(
-            "Services Catalog",
-            systemImage: "list.bullet.rectangle",
-            description: Text("Service management features coming soon")
-        )
-    }
-}
-
-struct ReportsView: View {
-    var body: some View {
-        ContentUnavailableView(
-            "Reports & Analytics",
-            systemImage: "chart.line.uptrend.xyaxis",
-            description: Text("Reporting features coming soon")
-        )
-    }
-}
+// Note: ClientsView, ServicesView, and ReportsView are now implemented in separate files
 
 #Preview {
     EnhancedQuotationListView(quotations: [], selectedQuotation: .constant(nil))
