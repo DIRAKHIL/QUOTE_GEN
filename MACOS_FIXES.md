@@ -4,6 +4,18 @@
 
 The compilation errors you're seeing are due to iOS-specific code that needs to be replaced with macOS-compatible alternatives. Here are the exact fixes needed:
 
+## 🚨 LATEST FIX (AIRecommendationsView.swift)
+
+### Error: String formatting with specifier (Line 121)
+**Replace:**
+```swift
+value: "₹\(recommendations.reduce(0) { $0 + $1.estimatedCost }, specifier: "%.0f")",
+```
+**With:**
+```swift
+value: "₹\(String(format: "%.0f", recommendations.reduce(0) { $0 + $1.estimatedCost }))",
+```
+
 ## 1. Fix QuotationListView.swift
 
 Replace the problematic lines in your `QuotationListView.swift` file:
@@ -282,9 +294,10 @@ import AppKit
 If you want to apply these fixes quickly, run these commands in your project directory:
 
 ```bash
-# Fix string formatting issues
+# Fix ALL string formatting issues (including the latest AIRecommendationsView fix)
 sed -i '' 's/, specifier: "%.0f"/))/g' QUOTE_GEN/Views/*.swift
 sed -i '' 's/\\(.*\\(quotationManager\\.get.*Value()\\)/\\(String(format: "%.0f", \\1)/g' QUOTE_GEN/Views/*.swift
+sed -i '' 's/\\(.*reduce(0) { $0 + $1\\.estimatedCost }, specifier: "%.0f"\\)/String(format: "%.0f", \\1)/g' QUOTE_GEN/Views/*.swift
 
 # Fix color references
 sed -i '' 's/Color(\\.systemGray6)/Color(NSColor.controlBackgroundColor)/g' QUOTE_GEN/Views/*.swift
