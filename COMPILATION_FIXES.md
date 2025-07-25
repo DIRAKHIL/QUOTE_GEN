@@ -90,6 +90,12 @@ Each view is now defined only once in its dedicated file.
 
 **Solution**: Renamed the struct in `ServiceSelectorView.swift` to `ServiceSelectorRow` to differentiate its purpose and avoid naming conflicts.
 
+### 7. macOS Platform Compatibility
+**Problem**: iOS-specific SwiftUI modifiers causing compilation errors on macOS:
+- `navigationBarTitleDisplayMode` is not available on macOS
+
+**Solution**: Added platform-specific compilation directives using `#if os(iOS)` to conditionally apply iOS-only modifiers, ensuring cross-platform compatibility.
+
 ## Technical Improvements
 
 ### 1. Modern SwiftUI Patterns
@@ -133,6 +139,7 @@ Each view is now defined only once in its dedicated file.
 ✅ **Duplicate struct definitions removed**
 ✅ **Ambiguous type conflicts resolved**
 ✅ **All struct names are unique across project**
+✅ **macOS platform compatibility ensured**
 
 ## Next Steps
 
