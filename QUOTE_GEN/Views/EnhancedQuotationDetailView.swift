@@ -310,9 +310,15 @@ struct EnhancedQuotationDetailView: View {
                 }
             }
         }
-        .onChange(of: quotation.discountPercentage) { _ in updateQuotation() }
-        .onChange(of: quotation.additionalFees) { _ in updateQuotation() }
-        .onChange(of: quotation.taxPercentage) { _ in updateQuotation() }
+        .onChange(of: quotation.discountPercentage) { 
+            updateQuotation() 
+        }
+        .onChange(of: quotation.additionalFees) { 
+            updateQuotation() 
+        }
+        .onChange(of: quotation.taxPercentage) { 
+            updateQuotation() 
+        }
     }
     
     // MARK: - Notes Section
@@ -327,7 +333,9 @@ struct EnhancedQuotationDetailView: View {
                     .padding(8)
                     .background(Color(NSColor.textBackgroundColor))
                     .clipShape(RoundedRectangle(cornerRadius: 8))
-                    .onChange(of: quotation.notes) { _ in updateQuotation() }
+                    .onChange(of: quotation.notes) { 
+                        updateQuotation() 
+                    }
             } else {
                 Text(quotation.notes.isEmpty ? "No notes added" : quotation.notes)
                     .font(.body)
@@ -568,9 +576,15 @@ struct EnhancedServiceItemRow: View {
         .padding(16)
         .background(Color(NSColor.controlBackgroundColor).opacity(0.5))
         .clipShape(RoundedRectangle(cornerRadius: 12))
-        .onChange(of: quantity) { _ in updateItem() }
-        .onChange(of: customPrice) { _ in updateItem() }
-        .onChange(of: notes) { _ in updateItem() }
+        .onChange(of: quantity) { 
+            updateItem() 
+        }
+        .onChange(of: customPrice) { 
+            updateItem() 
+        }
+        .onChange(of: notes) { 
+            updateItem() 
+        }
     }
     
     private func updateItem() {

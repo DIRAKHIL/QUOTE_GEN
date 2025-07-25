@@ -348,4 +348,14 @@ class QuotationManager: ObservableObject {
             allServices.first { $0.name == serviceName }
         }.prefix(10).map { $0 }
     }
+    
+    // MARK: - Missing Methods for EnhancedQuotationDetailView
+    func updateQuotation(_ quotation: Quotation) {
+        saveQuotation(quotation)
+    }
+    
+    func addQuotation(_ quotation: Quotation) {
+        quotations.append(quotation)
+        saveQuotations()
+    }
 }
