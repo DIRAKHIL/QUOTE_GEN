@@ -174,7 +174,6 @@ struct EnhancedQuotationApp: View {
             }
         }
         .navigationTitle(selectedSidebarItem.rawValue)
-        .searchable(text: $searchText, placement: .automatic)
     }
     
     // MARK: - Detail View

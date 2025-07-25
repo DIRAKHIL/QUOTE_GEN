@@ -82,7 +82,6 @@ struct EnhancedQuotationListView: View {
                 contentView
             }
         }
-        .searchable(text: $searchText, placement: .automatic, prompt: "Search quotations...")
     }
     
     private var toolbarView: some View {
