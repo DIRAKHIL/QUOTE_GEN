@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AppKit
 
 struct AIRecommendationsView: View {
     let quotation: Quotation
@@ -51,15 +52,14 @@ struct AIRecommendationsView: View {
                 .padding()
             }
             .navigationTitle("AI Recommendations")
-            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
+                ToolbarItem(placement: .cancellationAction) {
                     Button("Close") {
                         dismiss()
                     }
                 }
                 
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItem(placement: .primaryAction) {
                     Button("Optimize Budget") {
                         showingBudgetOptimization = true
                     }
@@ -125,7 +125,7 @@ struct AIRecommendationsView: View {
             }
         }
         .padding()
-        .background(Color(.systemGray6))
+        .background(Color(NSColor.controlBackgroundColor))
         .cornerRadius(12)
     }
     
@@ -154,7 +154,7 @@ struct AIRecommendationsView: View {
             }
         }
         .padding()
-        .background(Color(.systemGray6))
+        .background(Color(NSColor.controlBackgroundColor))
         .cornerRadius(12)
     }
     
@@ -220,7 +220,7 @@ struct AIRecommendationsView: View {
             }
         }
         .padding()
-        .background(Color(.systemGray6))
+        .background(Color(NSColor.controlBackgroundColor))
         .cornerRadius(12)
     }
     
@@ -261,7 +261,7 @@ struct AIRecommendationsView: View {
             }
         }
         .padding()
-        .background(Color(.systemGray6))
+        .background(Color(NSColor.controlBackgroundColor))
         .cornerRadius(12)
     }
     
@@ -300,7 +300,7 @@ struct InsightCard: View {
         }
         .frame(maxWidth: .infinity)
         .padding()
-        .background(Color(.systemBackground))
+        .background(Color(NSColor.controlBackgroundColor))
         .cornerRadius(8)
     }
 }
@@ -325,7 +325,7 @@ struct PriorityFilterChip: View {
             }
             .padding(.horizontal, 16)
             .padding(.vertical, 8)
-            .background(isSelected ? color : Color(.systemGray5))
+            .background(isSelected ? color : Color(NSColor.controlColor))
             .foregroundColor(isSelected ? .white : .primary)
             .cornerRadius(20)
         }
@@ -433,7 +433,7 @@ struct RecommendationCard: View {
             }
         }
         .padding()
-        .background(Color(.systemBackground))
+        .background(Color(NSColor.controlBackgroundColor))
         .cornerRadius(8)
         .shadow(radius: 1)
     }
@@ -505,7 +505,6 @@ struct BudgetOptimizationView: View {
                     
                     TextField("Enter target budget", value: $targetBudget, format: .currency(code: "INR"))
                         .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .keyboardType(.decimalPad)
                         .onChange(of: targetBudget) { _, _ in
                             optimizeRecommendations()
                         }
@@ -538,9 +537,8 @@ struct BudgetOptimizationView: View {
             }
             .padding()
             .navigationTitle("Budget Optimization")
-            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
+                ToolbarItem(placement: .cancellationAction) {
                     Button("Cancel") {
                         dismiss()
                     }

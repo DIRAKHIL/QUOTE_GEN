@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AppKit
 
 struct ServiceSelectorView: View {
     @Environment(\.dismiss) private var dismiss
@@ -52,9 +53,8 @@ struct ServiceSelectorView: View {
                 servicesList
             }
             .navigationTitle("Add Services")
-            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
+                ToolbarItem(placement: .cancellationAction) {
                     Button("Cancel") {
                         dismiss()
                     }
@@ -102,7 +102,7 @@ struct ServiceSelectorView: View {
             }
         }
         .padding()
-        .background(Color(.systemGray6))
+        .background(Color(NSColor.controlBackgroundColor))
     }
     
     private var servicesList: some View {
@@ -162,7 +162,7 @@ struct CategoryFilterChip: View {
             }
             .padding(.horizontal, 12)
             .padding(.vertical, 6)
-            .background(isSelected ? Color.blue : Color(.systemGray5))
+            .background(isSelected ? Color.blue : Color(NSColor.controlColor))
             .foregroundColor(isSelected ? .white : .primary)
             .cornerRadius(16)
         }

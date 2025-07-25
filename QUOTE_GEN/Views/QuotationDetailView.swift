@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AppKit
 
 struct QuotationDetailView: View {
     @EnvironmentObject var quotationManager: QuotationManager
@@ -39,15 +40,14 @@ struct QuotationDetailView: View {
                 .padding()
             }
             .navigationTitle("Quotation")
-            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
+                ToolbarItem(placement: .cancellationAction) {
                     Button("Cancel") {
                         dismiss()
                     }
                 }
                 
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItem(placement: .primaryAction) {
                     Menu {
                         Button(action: saveQuotation) {
                             Label("Save", systemImage: "square.and.arrow.down")
@@ -93,7 +93,7 @@ struct QuotationDetailView: View {
             }
         }
         .padding()
-        .background(Color(.systemGray6))
+        .background(Color(NSColor.controlBackgroundColor))
         .cornerRadius(12)
     }
     
@@ -133,7 +133,7 @@ struct QuotationDetailView: View {
             }
         }
         .padding()
-        .background(Color(.systemGray6))
+        .background(Color(NSColor.controlBackgroundColor))
         .cornerRadius(12)
     }
     
@@ -191,7 +191,7 @@ struct QuotationDetailView: View {
             }
         }
         .padding()
-        .background(Color(.systemGray6))
+        .background(Color(NSColor.controlBackgroundColor))
         .cornerRadius(12)
     }
     
@@ -210,7 +210,6 @@ struct QuotationDetailView: View {
                     TextField("0", value: $quotation.discountPercentage, format: .number)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .frame(width: 80)
-                        .keyboardType(.decimalPad)
                 }
                 
                 if quotation.discountPercentage > 0 {
@@ -226,7 +225,6 @@ struct QuotationDetailView: View {
                     TextField("0", value: $quotation.additionalFees, format: .currency(code: "INR"))
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .frame(width: 120)
-                        .keyboardType(.decimalPad)
                 }
                 
                 HStack {
@@ -237,7 +235,6 @@ struct QuotationDetailView: View {
                     TextField("18", value: $quotation.taxPercentage, format: .number)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .frame(width: 80)
-                        .keyboardType(.decimalPad)
                 }
                 
                 PricingRow(title: "Tax Amount", amount: quotation.taxAmount, isTotal: false)
@@ -248,7 +245,7 @@ struct QuotationDetailView: View {
             }
         }
         .padding()
-        .background(Color(.systemGray6))
+        .background(Color(NSColor.controlBackgroundColor))
         .cornerRadius(12)
     }
     
@@ -259,15 +256,15 @@ struct QuotationDetailView: View {
             TextEditor(text: $quotation.notes)
                 .frame(minHeight: 100)
                 .padding(8)
-                .background(Color(.systemBackground))
+                .background(Color(NSColor.controlBackgroundColor))
                 .cornerRadius(8)
                 .overlay(
                     RoundedRectangle(cornerRadius: 8)
-                        .stroke(Color(.systemGray4), lineWidth: 1)
+                        .stroke(Color(NSColor.separatorColor), lineWidth: 1)
                 )
         }
         .padding()
-        .background(Color(.systemGray6))
+        .background(Color(NSColor.controlBackgroundColor))
         .cornerRadius(12)
     }
     
@@ -451,7 +448,6 @@ struct ServiceItemRow: View {
                         .foregroundColor(.secondary)
                     TextField("Custom price", text: $customPrice)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .keyboardType(.decimalPad)
                         .onChange(of: customPrice) { _, _ in
                             updateItem()
                         }
@@ -476,7 +472,7 @@ struct ServiceItemRow: View {
             }
         }
         .padding()
-        .background(Color(.systemBackground))
+        .background(Color(NSColor.controlBackgroundColor))
         .cornerRadius(8)
     }
     
@@ -504,15 +500,14 @@ struct ExportView: View {
                     .padding()
             }
             .navigationTitle("Export Quotation")
-            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
+                ToolbarItem(placement: .cancellationAction) {
                     Button("Done") {
                         dismiss()
                     }
                 }
                 
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItem(placement: .primaryAction) {
                     ShareLink(item: text) {
                         Image(systemName: "square.and.arrow.up")
                     }

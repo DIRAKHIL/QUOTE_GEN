@@ -43,7 +43,7 @@ enum ServiceCategory: String, CaseIterable, Identifiable, Codable {
 }
 
 // MARK: - Service Item Model
-struct ServiceItem: Identifiable, Codable {
+struct ServiceItem: Identifiable, Codable, Hashable {
     let id = UUID()
     let name: String
     let category: ServiceCategory
@@ -54,6 +54,16 @@ struct ServiceItem: Identifiable, Codable {
     
     enum CodingKeys: String, CodingKey {
         case name, category, basePrice, unit, description, isTeluguSpecific
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
+        hasher.combine(category)
+        hasher.combine(basePrice)
+    }
+    
+    static func == (lhs: ServiceItem, rhs: ServiceItem) -> Bool {
+        return lhs.name == rhs.name && lhs.category == rhs.category && lhs.basePrice == rhs.basePrice
     }
 }
 

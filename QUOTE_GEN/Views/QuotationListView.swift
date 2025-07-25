@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AppKit
 
 struct QuotationListView: View {
     @StateObject private var quotationManager = QuotationManager()
@@ -35,9 +36,8 @@ struct QuotationListView: View {
                 }
             }
             .navigationTitle("S-Quote")
-            .navigationBarTitleDisplayMode(.large)
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItem(placement: .primaryAction) {
                     Button(action: createNewQuotation) {
                         Image(systemName: "plus.circle.fill")
                             .font(.title2)
@@ -97,14 +97,14 @@ struct QuotationListView: View {
                 
                 StatCard(
                     title: "Avg. Value",
-                    value: "₹\(quotationManager.getAverageQuotationValue(), specifier: "%.0f")",
+                    value: String(format: "₹%.0f", quotationManager.getAverageQuotationValue()),
                     icon: "chart.line.uptrend.xyaxis",
                     color: .orange
                 )
             }
         }
         .padding()
-        .background(Color(.systemGray6))
+        .background(Color(NSColor.controlBackgroundColor))
         .cornerRadius(12)
         .padding(.horizontal)
     }
@@ -199,7 +199,7 @@ struct StatCard: View {
         }
         .frame(maxWidth: .infinity)
         .padding()
-        .background(Color(.systemBackground))
+        .background(Color(NSColor.controlBackgroundColor))
         .cornerRadius(8)
         .shadow(radius: 1)
     }
