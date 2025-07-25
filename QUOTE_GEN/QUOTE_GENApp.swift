@@ -11,11 +11,9 @@ import SwiftUI
 struct QUOTE_GENApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MacOSNativeApp()
         }
-        .windowStyle(.hiddenTitleBar)
-        .windowToolbarStyle(.unified)
-        .defaultSize(width: 1400, height: 900)
+        .defaultSize(width: 1200, height: 800)
         .commands {
             CommandGroup(replacing: .newItem) {
                 Button("New Quotation") {
