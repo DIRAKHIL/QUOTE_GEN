@@ -12,6 +12,7 @@ import AppKit
 struct MacOSNativeApp: View {
     @StateObject private var quotationManager = QuotationManager()
     @State private var selectedQuotation: Quotation?
+    @State private var selectedQuotationID: UUID?
     @State private var searchText = ""
     @State private var showingNewQuotationSheet = false
     @State private var showingSettingsSheet = false
@@ -62,6 +63,9 @@ struct MacOSNativeApp: View {
         .sheet(isPresented: $showingSettingsSheet) {
             SettingsSheet()
         }
+        .onChange(of: selectedQuotationID) { _, newID in
+            selectedQuotation = quotationManager.quotations.first { $0.id == newID }
+        }
         .environmentObject(quotationManager)
         .onAppear {
             configureWindow()
@@ -106,19 +110,19 @@ struct MacOSNativeApp: View {
             case .allQuotations:
                 NativeQuotationListView(
                     quotations: filteredQuotations,
-                    selectedQuotation: $selectedQuotation,
+                    selectedQuotationID: $selectedQuotationID,
                     searchText: searchText
                 )
             case .drafts:
                 NativeQuotationListView(
                     quotations: filteredQuotations.filter { !$0.isFinalized },
-                    selectedQuotation: $selectedQuotation,
+                    selectedQuotationID: $selectedQuotationID,
                     searchText: searchText
                 )
             case .finalized:
                 NativeQuotationListView(
                     quotations: filteredQuotations.filter { $0.isFinalized },
-                    selectedQuotation: $selectedQuotation,
+                    selectedQuotationID: $selectedQuotationID,
                     searchText: searchText
                 )
             case .clients:
@@ -247,11 +251,11 @@ struct MacOSNativeApp: View {
 // MARK: - Native Quotation List View
 struct NativeQuotationListView: View {
     let quotations: [Quotation]
-    @Binding var selectedQuotation: Quotation?
+    @Binding var selectedQuotationID: UUID?
     let searchText: String
     
     var body: some View {
-        Table(quotations, selection: $selectedQuotation) {
+        Table(quotations, selection: $selectedQuotationID) {
             TableColumn("Client") { quotation in
                 VStack(alignment: .leading, spacing: 2) {
                     Text(quotation.clientName.isEmpty ? "Untitled" : quotation.clientName)
@@ -350,7 +354,6 @@ struct NewQuotationSheet: View {
             }
             .formStyle(.grouped)
             .navigationTitle("New Quotation")
-            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button("Cancel") {
