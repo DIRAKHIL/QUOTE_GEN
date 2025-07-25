@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - Service Category Enum
-enum ServiceCategory: String, CaseIterable, Identifiable {
+enum ServiceCategory: String, CaseIterable, Identifiable, Codable {
     case photography = "Photography & Videography"
     case decoration = "Decoration & Mandap"
     case catering = "Catering & Food"
@@ -76,7 +76,7 @@ struct QuoteItem: Identifiable, Codable {
 }
 
 // MARK: - Event Type Enum
-enum EventType: String, CaseIterable, Identifiable {
+enum EventType: String, CaseIterable, Identifiable, Codable {
     case wedding = "Telugu Wedding"
     case engagement = "Engagement (Nischitartham)"
     case haldi = "Haldi Ceremony"

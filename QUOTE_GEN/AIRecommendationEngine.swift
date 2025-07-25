@@ -466,7 +466,7 @@ struct ServiceRecommendation: Identifiable {
     let estimatedCost: Double
 }
 
-enum RecommendationPriority: Int, CaseIterable {
+enum RecommendationPriority: Int, CaseIterable, Codable {
     case high = 3
     case medium = 2
     case low = 1
