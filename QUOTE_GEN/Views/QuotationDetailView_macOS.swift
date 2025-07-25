@@ -303,7 +303,7 @@ struct QuotationDetailView_macOS: View {
                     
                     Spacer()
                     
-                    Text("₹\(String(format: "%.2f", quotation.total))")
+                    Text("₹\(String(format: "%.2f", quotation.grandTotal))")
                         .font(.title3)
                         .fontWeight(.bold)
                         .foregroundColor(.green)
