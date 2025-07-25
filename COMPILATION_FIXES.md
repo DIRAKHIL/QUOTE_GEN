@@ -96,6 +96,13 @@ Each view is now defined only once in its dedicated file.
 
 **Solution**: Added platform-specific compilation directives using `#if os(iOS)` to conditionally apply iOS-only modifiers, ensuring cross-platform compatibility.
 
+### 8. Duplicate Search Toolbar Items
+**Problem**: Runtime crash due to duplicate search toolbar items:
+- Multiple `.searchable()` modifiers in the view hierarchy
+- NSToolbar error: "already contains an item with the identifier com.apple.SwiftUI.search"
+
+**Solution**: Removed duplicate `.searchable()` modifiers, keeping only one at the main app level to prevent toolbar identifier conflicts.
+
 ## Technical Improvements
 
 ### 1. Modern SwiftUI Patterns
@@ -140,6 +147,7 @@ Each view is now defined only once in its dedicated file.
 ✅ **Ambiguous type conflicts resolved**
 ✅ **All struct names are unique across project**
 ✅ **macOS platform compatibility ensured**
+✅ **Runtime toolbar conflicts resolved**
 
 ## Next Steps
 
