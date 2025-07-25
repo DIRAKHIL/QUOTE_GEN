@@ -75,7 +75,7 @@ struct EnhancedQuotationDetailView: View {
             }
         }
         .sheet(isPresented: $showingExportSheet) {
-            ExportView(quotation: quotation)
+            EnhancedExportView(quotation: quotation)
         }
         .alert("Delete Quotation", isPresented: $showingDeleteAlert) {
             Button("Delete", role: .destructive) {
@@ -145,7 +145,7 @@ struct EnhancedQuotationDetailView: View {
     // MARK: - Client Information Section
     private var clientInformationSection: some View {
         VStack(alignment: .leading, spacing: 16) {
-            SectionHeader(title: "Client Information", icon: "person.fill")
+            EnhancedSectionHeader(title: "Client Information", icon: "person.fill")
             
             LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 2), spacing: 16) {
                 InfoCard(title: "Name", value: quotation.clientName, icon: "person.fill", isEditing: isEditing) { newValue in
@@ -176,7 +176,7 @@ struct EnhancedQuotationDetailView: View {
     // MARK: - Event Details Section
     private var eventDetailsSection: some View {
         VStack(alignment: .leading, spacing: 16) {
-            SectionHeader(title: "Event Details", icon: "heart.fill")
+            EnhancedSectionHeader(title: "Event Details", icon: "heart.fill")
             
             LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 2), spacing: 16) {
                 InfoCard(title: "Event Type", value: quotation.eventType.rawValue, icon: "heart.fill", isEditing: false) { _ in }
@@ -199,7 +199,7 @@ struct EnhancedQuotationDetailView: View {
     private var servicesSection: some View {
         VStack(alignment: .leading, spacing: 16) {
             HStack {
-                SectionHeader(title: "Services & Items", icon: "list.bullet.rectangle")
+                EnhancedSectionHeader(title: "Services & Items", icon: "list.bullet.rectangle")
                 
                 Spacer()
                 
@@ -236,13 +236,13 @@ struct EnhancedQuotationDetailView: View {
     // MARK: - Pricing Summary Section
     private var pricingSummarySection: some View {
         VStack(alignment: .leading, spacing: 16) {
-            SectionHeader(title: "Pricing Summary", icon: "indianrupeesign.circle.fill")
+            EnhancedSectionHeader(title: "Pricing Summary", icon: "indianrupeesign.circle.fill")
             
             VStack(spacing: 12) {
-                PricingRow(label: "Subtotal", amount: quotation.subtotal, isTotal: false)
+                EnhancedPricingRow(label: "Subtotal", amount: quotation.subtotal, isTotal: false)
                 
                 if quotation.discountPercentage > 0 {
-                    PricingRow(
+                    EnhancedPricingRow(
                         label: "Discount (\(String(format: "%.1f", quotation.discountPercentage))%)",
                         amount: -quotation.discountAmount,
                         isTotal: false,
@@ -251,10 +251,10 @@ struct EnhancedQuotationDetailView: View {
                 }
                 
                 if quotation.additionalFees > 0 {
-                    PricingRow(label: "Additional Fees", amount: quotation.additionalFees, isTotal: false)
+                    EnhancedPricingRow(label: "Additional Fees", amount: quotation.additionalFees, isTotal: false)
                 }
                 
-                PricingRow(
+                EnhancedPricingRow(
                     label: "Tax (\(String(format: "%.1f", quotation.taxPercentage))%)",
                     amount: quotation.taxAmount,
                     isTotal: false
@@ -262,7 +262,7 @@ struct EnhancedQuotationDetailView: View {
                 
                 Divider()
                 
-                PricingRow(label: "Grand Total", amount: quotation.grandTotal, isTotal: true)
+                EnhancedPricingRow(label: "Grand Total", amount: quotation.grandTotal, isTotal: true)
             }
             
             if isEditing {
@@ -318,7 +318,7 @@ struct EnhancedQuotationDetailView: View {
     // MARK: - Notes Section
     private var notesSection: some View {
         VStack(alignment: .leading, spacing: 16) {
-            SectionHeader(title: "Notes", icon: "note.text")
+            EnhancedSectionHeader(title: "Notes", icon: "note.text")
             
             if isEditing {
                 TextEditor(text: $quotation.notes)
@@ -394,7 +394,7 @@ struct EnhancedQuotationDetailView: View {
 }
 
 // MARK: - Supporting Views
-struct SectionHeader: View {
+struct EnhancedSectionHeader: View {
     let title: String
     let icon: String
     
@@ -585,7 +585,7 @@ struct EnhancedServiceItemRow: View {
     }
 }
 
-struct PricingRow: View {
+struct EnhancedPricingRow: View {
     let label: String
     let amount: Double
     let isTotal: Bool
@@ -615,7 +615,7 @@ struct PricingRow: View {
     }
 }
 
-struct ExportView: View {
+struct EnhancedExportView: View {
     let quotation: Quotation
     @Environment(\.dismiss) private var dismiss
     

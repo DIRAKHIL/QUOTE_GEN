@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct QuotationListView: View {
+struct EnhancedQuotationListView: View {
     let quotations: [Quotation]
     @Binding var selectedQuotation: Quotation?
     @State private var sortOrder: SortOrder = .dateDescending
@@ -371,6 +371,6 @@ struct ReportsView: View {
 }
 
 #Preview {
-    QuotationListView(quotations: [], selectedQuotation: .constant(nil))
+    EnhancedQuotationListView(quotations: [], selectedQuotation: .constant(nil))
         .frame(width: 800, height: 600)
 }

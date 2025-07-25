@@ -158,13 +158,13 @@ struct EnhancedQuotationApp: View {
             case .dashboard:
                 DashboardView()
             case .allQuotations:
-                QuotationListView(quotations: quotationManager.quotations, selectedQuotation: $selectedQuotation)
+                EnhancedQuotationListView(quotations: quotationManager.quotations, selectedQuotation: $selectedQuotation)
             case .drafts:
-                QuotationListView(quotations: quotationManager.quotations.filter { !$0.isFinalized }, selectedQuotation: $selectedQuotation)
+                EnhancedQuotationListView(quotations: quotationManager.quotations.filter { !$0.isFinalized }, selectedQuotation: $selectedQuotation)
             case .finalized:
-                QuotationListView(quotations: quotationManager.quotations.filter { $0.isFinalized }, selectedQuotation: $selectedQuotation)
+                EnhancedQuotationListView(quotations: quotationManager.quotations.filter { $0.isFinalized }, selectedQuotation: $selectedQuotation)
             case .thisMonth:
-                QuotationListView(quotations: quotationsThisMonth, selectedQuotation: $selectedQuotation)
+                EnhancedQuotationListView(quotations: quotationsThisMonth, selectedQuotation: $selectedQuotation)
             case .clients:
                 ClientsView()
             case .services:
@@ -279,7 +279,7 @@ struct DashboardView: View {
     
     private var quickStatsSection: some View {
         LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 4), spacing: 16) {
-            StatCard(
+            EnhancedStatCard(
                 title: "Total Quotations",
                 value: "\(quotationManager.quotations.count)",
                 icon: "doc.text.fill",
@@ -288,7 +288,7 @@ struct DashboardView: View {
                 trendValue: "12%"
             )
             
-            StatCard(
+            EnhancedStatCard(
                 title: "This Month",
                 value: "\(quotationsThisMonth.count)",
                 icon: "calendar",
@@ -297,7 +297,7 @@ struct DashboardView: View {
                 trendValue: "8%"
             )
             
-            StatCard(
+            EnhancedStatCard(
                 title: "Finalized",
                 value: "\(finalizedQuotations.count)",
                 icon: "checkmark.seal.fill",
@@ -306,7 +306,7 @@ struct DashboardView: View {
                 trendValue: "15%"
             )
             
-            StatCard(
+            EnhancedStatCard(
                 title: "Total Value",
                 value: "₹\(String(format: "%.0f", totalValue))",
                 icon: "indianrupeesign.circle.fill",
@@ -388,7 +388,7 @@ struct DashboardView: View {
 }
 
 // MARK: - Supporting Views
-struct StatCard: View {
+struct EnhancedStatCard: View {
     let title: String
     let value: String
     let icon: String
