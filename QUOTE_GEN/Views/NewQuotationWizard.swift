@@ -43,7 +43,7 @@ struct NewQuotationWizard: View {
                 servicesSelectionStep.tag(2)
                 reviewStep.tag(3)
             }
-            .tabViewStyle(.page(indexDisplayMode: .never))
+            .tabViewStyle(.automatic)
             
             Divider()
             
@@ -392,7 +392,7 @@ struct NewQuotationWizard: View {
             isFinalized: false
         )
         
-        quotationManager.addQuotation(quotation)
+        quotationManager.saveQuotation(quotation)
         dismiss()
     }
     
