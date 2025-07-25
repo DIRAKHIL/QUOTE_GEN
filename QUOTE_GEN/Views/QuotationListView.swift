@@ -11,9 +11,8 @@ import AppKit
 struct QuotationListView: View {
     @StateObject private var quotationManager = QuotationManager()
     @State private var searchText = ""
-    @State private var showingNewQuotation = false
     @State private var selectedQuotation: Quotation?
-    @State private var showingQuotationDetail = false
+    @State private var newQuotation: Quotation?
     
     var filteredQuotations: [Quotation] {
         quotationManager.searchQuotations(query: searchText)
@@ -44,8 +43,8 @@ struct QuotationListView: View {
                     }
                 }
             }
-            .sheet(isPresented: $showingNewQuotation) {
-                QuotationDetailView(quotation: quotationManager.createNewQuotation())
+            .sheet(item: $newQuotation) { quotation in
+                QuotationDetailView(quotation: quotation)
                     .environmentObject(quotationManager)
             }
             .sheet(item: $selectedQuotation) { quotation in
@@ -173,7 +172,7 @@ struct QuotationListView: View {
     }
     
     private func createNewQuotation() {
-        showingNewQuotation = true
+        newQuotation = quotationManager.createNewQuotation()
     }
 }
 
