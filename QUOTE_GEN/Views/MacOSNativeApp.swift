@@ -104,19 +104,19 @@ struct MacOSNativeApp: View {
         Group {
             switch selectedSidebarItem {
             case .allQuotations:
-                QuotationListView(
+                NativeQuotationListView(
                     quotations: filteredQuotations,
                     selectedQuotation: $selectedQuotation,
                     searchText: searchText
                 )
             case .drafts:
-                QuotationListView(
+                NativeQuotationListView(
                     quotations: filteredQuotations.filter { !$0.isFinalized },
                     selectedQuotation: $selectedQuotation,
                     searchText: searchText
                 )
             case .finalized:
-                QuotationListView(
+                NativeQuotationListView(
                     quotations: filteredQuotations.filter { $0.isFinalized },
                     selectedQuotation: $selectedQuotation,
                     searchText: searchText
@@ -136,7 +136,7 @@ struct MacOSNativeApp: View {
     private var detailView: some View {
         Group {
             if let quotation = selectedQuotation {
-                QuotationDetailView(quotation: quotation)
+                NativeQuotationDetailView(quotation: quotation)
                     .navigationTitle(quotation.clientName.isEmpty ? "New Quotation" : quotation.clientName)
                     .navigationSubtitle(quotation.eventType.rawValue)
             } else {
@@ -244,8 +244,8 @@ struct MacOSNativeApp: View {
     }
 }
 
-// MARK: - Quotation List View
-struct QuotationListView: View {
+// MARK: - Native Quotation List View
+struct NativeQuotationListView: View {
     let quotations: [Quotation]
     @Binding var selectedQuotation: Quotation?
     let searchText: String
@@ -512,8 +512,8 @@ struct TemplateManagementView: View {
     }
 }
 
-// MARK: - Quotation Detail View
-struct QuotationDetailView: View {
+// MARK: - Native Quotation Detail View
+struct NativeQuotationDetailView: View {
     let quotation: Quotation
     
     var body: some View {

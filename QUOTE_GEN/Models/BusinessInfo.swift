@@ -17,6 +17,10 @@ struct BusinessInfo: Codable, Identifiable {
     var taxInfo: TaxInfo
     var branding: BrandingInfo
     
+    enum CodingKeys: String, CodingKey {
+        case businessName, ownerName, address, contactInfo, bankDetails, taxInfo, branding
+    }
+    
     struct Address: Codable {
         var street: String
         var city: String
