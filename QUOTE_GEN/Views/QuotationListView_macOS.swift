@@ -252,7 +252,7 @@ struct QuotationListView_macOS: View {
     }
     
     private var totalValue: Double {
-        quotationManager.quotations.reduce(0) { $0 + $1.total }
+        quotationManager.quotations.reduce(0.0) { $0 + $1.grandTotal }
     }
     
     // MARK: - Actions
@@ -284,7 +284,7 @@ struct MacOSQuotationRowView: View {
                         
                         Spacer()
                         
-                        Text("₹\(String(format: "%.0f", quotation.total))")
+                        Text("₹\(String(format: "%.0f", quotation.grandTotal))")
                             .font(.caption)
                             .fontWeight(.semibold)
                             .foregroundColor(.green)
@@ -351,7 +351,7 @@ struct QuotationPreviewView: View {
                         
                         Spacer()
                         
-                        Label(quotation.eventDate, style: .date, systemImage: "calendar")
+                        Label(quotation.eventDate.formatted(date: .abbreviated, time: .omitted), systemImage: "calendar")
                     }
                     .font(.subheadline)
                     .foregroundColor(.secondary)
