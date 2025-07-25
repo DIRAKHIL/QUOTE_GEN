@@ -118,7 +118,7 @@ struct AIRecommendationsView: View {
                 
                 InsightCard(
                     title: "Est. Cost",
-                    value: "₹\(recommendations.reduce(0) { $0 + $1.estimatedCost }, specifier: "%.0f")",
+                    value: "₹\(String(format: "%.0f", recommendations.reduce(0) { $0 + $1.estimatedCost }))",
                     icon: "indianrupeesign.circle.fill",
                     color: .green
                 )
