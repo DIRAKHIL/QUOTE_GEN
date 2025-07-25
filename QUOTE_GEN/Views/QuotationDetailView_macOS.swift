@@ -56,7 +56,7 @@ struct QuotationDetailView_macOS: View {
             .frame(minWidth: 600, minHeight: 500)
         }
         .sheet(isPresented: $showingExportSheet) {
-            ExportView(text: exportText)
+            MacOSExportView(text: exportText)
                 .frame(minWidth: 500, minHeight: 400)
         }
     }
@@ -497,7 +497,7 @@ struct MacOSPricingRow: View {
     }
 }
 
-struct ExportView: View {
+struct MacOSExportView: View {
     let text: String
     @Environment(\.dismiss) private var dismiss
     
