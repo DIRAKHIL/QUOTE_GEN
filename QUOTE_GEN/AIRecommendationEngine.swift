@@ -466,7 +466,7 @@ struct ServiceRecommendation: Identifiable {
     let estimatedCost: Double
 }
 
-enum RecommendationPriority: Int, CaseIterable, Codable {
+enum RecommendationPriority: Int, CaseIterable, Codable, Comparable {
     case high = 3
     case medium = 2
     case low = 1
@@ -485,5 +485,9 @@ enum RecommendationPriority: Int, CaseIterable, Codable {
         case .medium: return "orange"
         case .low: return "green"
         }
+    }
+    
+    static func < (lhs: RecommendationPriority, rhs: RecommendationPriority) -> Bool {
+        return lhs.rawValue < rhs.rawValue
     }
 }
