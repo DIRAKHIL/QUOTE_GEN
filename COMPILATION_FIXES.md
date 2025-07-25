@@ -70,6 +70,19 @@ func addQuotation(_ quotation: Quotation) {
 
 **Solution**: The @EnvironmentObject was declared correctly, but the method calls were properly structured to work with the environment object pattern.
 
+### 5. Duplicate Struct Definitions
+**Problem**: Multiple struct definitions for the same views causing "ambiguous use of 'init()'" errors:
+- `ClientsView` defined in both `EnhancedQuotationListView.swift` and `ClientsView.swift`
+- `ServicesView` defined in both `EnhancedQuotationListView.swift` and `ServicesView.swift`
+- `ReportsView` defined in both `EnhancedQuotationListView.swift` and `ReportsView.swift`
+- `SettingsView` defined in both `NewQuotationWizard.swift` and `SettingsView.swift`
+
+**Solution**: Removed placeholder struct definitions from:
+- `EnhancedQuotationListView.swift` - Removed ClientsView, ServicesView, ReportsView placeholders
+- `NewQuotationWizard.swift` - Removed SettingsView placeholder
+
+Each view is now defined only once in its dedicated file.
+
 ## Technical Improvements
 
 ### 1. Modern SwiftUI Patterns
@@ -110,6 +123,8 @@ func addQuotation(_ quotation: Quotation) {
 ✅ **All warnings addressed**
 ✅ **Modern SwiftUI syntax implemented**
 ✅ **Complete feature set available**
+✅ **Duplicate struct definitions removed**
+✅ **Ambiguous type conflicts resolved**
 
 ## Next Steps
 
