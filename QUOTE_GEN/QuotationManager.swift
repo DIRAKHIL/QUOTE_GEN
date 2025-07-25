@@ -16,7 +16,10 @@ class QuotationManager: ObservableObject {
     private let quotationsKey = "SavedQuotations"
     
     init() {
-        loadQuotations()
+        // Load data asynchronously to prevent app hanging
+        DispatchQueue.global(qos: .background).async {
+            self.loadQuotations()
+        }
     }
     
     // MARK: - Quotation Management
@@ -178,12 +181,23 @@ class QuotationManager: ObservableObject {
     }
     
     private func loadQuotations() {
-        guard let data = userDefaults.data(forKey: quotationsKey) else { return }
+        guard let data = userDefaults.data(forKey: quotationsKey) else { 
+            DispatchQueue.main.async {
+                self.quotations = []
+            }
+            return 
+        }
         
         do {
-            quotations = try JSONDecoder().decode([Quotation].self, from: data)
+            let loadedQuotations = try JSONDecoder().decode([Quotation].self, from: data)
+            DispatchQueue.main.async {
+                self.quotations = loadedQuotations
+            }
         } catch {
             print("Failed to load quotations: \(error)")
+            DispatchQueue.main.async {
+                self.quotations = []
+            }
         }
     }
     
