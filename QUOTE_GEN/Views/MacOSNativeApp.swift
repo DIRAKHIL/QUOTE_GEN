@@ -208,7 +208,7 @@ struct MacOSNativeApp: View {
             return quotationManager.quotations.filter { quotation in
                 quotation.clientName.localizedCaseInsensitiveContains(searchText) ||
                 quotation.eventType.rawValue.localizedCaseInsensitiveContains(searchText) ||
-                quotation.services.contains { $0.name.localizedCaseInsensitiveContains(searchText) }
+                quotation.items.contains { $0.serviceItem.name.localizedCaseInsensitiveContains(searchText) }
             }
         }
     }
@@ -372,11 +372,18 @@ struct NewQuotationSheet: View {
     private func createQuotation() {
         let newQuotation = Quotation(
             clientName: clientName,
+            clientPhone: "",
+            clientEmail: "",
             eventType: eventType,
             eventDate: eventDate,
             venue: venue,
-            services: [],
+            guestCount: 0,
+            items: [],
+            discountPercentage: 0.0,
+            additionalFees: 0.0,
+            taxPercentage: 18.0,
             notes: "",
+            createdDate: Date(),
             isFinalized: false
         )
         quotationManager.addQuotation(newQuotation)
@@ -561,33 +568,36 @@ struct QuotationDetailView: View {
     
     private var servicesSection: some View {
         GroupBox("Services") {
-            if quotation.services.isEmpty {
+            if quotation.items.isEmpty {
                 Text("No services added")
                     .foregroundStyle(.secondary)
                     .frame(maxWidth: .infinity, alignment: .center)
                     .padding()
             } else {
                 VStack(spacing: 8) {
-                    ForEach(quotation.services) { service in
+                    ForEach(quotation.items) { item in
                         HStack {
                             VStack(alignment: .leading) {
-                                Text(service.name)
+                                Text(item.serviceItem.name)
                                     .fontWeight(.medium)
-                                if !service.description.isEmpty {
-                                    Text(service.description)
+                                if !item.serviceItem.description.isEmpty {
+                                    Text(item.serviceItem.description)
                                         .font(.caption)
                                         .foregroundStyle(.secondary)
                                 }
+                                Text("Quantity: \(item.quantity)")
+                                    .font(.caption)
+                                    .foregroundStyle(.secondary)
                             }
                             
                             Spacer()
                             
-                            Text(service.price, format: .currency(code: "INR"))
+                            Text(item.totalPrice, format: .currency(code: "INR"))
                                 .font(.body.monospacedDigit())
                         }
                         .padding(.vertical, 4)
                         
-                        if service != quotation.services.last {
+                        if item != quotation.items.last {
                             Divider()
                         }
                     }
@@ -607,9 +617,9 @@ struct QuotationDetailView: View {
                 }
                 
                 HStack {
-                    Text("Tax:")
+                    Text("Tax (\(String(format: "%.0f", quotation.taxPercentage))%):")
                     Spacer()
-                    Text(quotation.tax, format: .currency(code: "INR"))
+                    Text(quotation.taxAmount, format: .currency(code: "INR"))
                         .font(.body.monospacedDigit())
                 }
                 

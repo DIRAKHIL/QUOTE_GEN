@@ -38,7 +38,6 @@ class PDFExportService {
         // Create PDF context
         guard let pdfContext = CGContext(url as CFURL, mediaBox: nil, nil) else { return }
         
-        let mediaBox = CGRect(origin: .zero, size: pageSize)
         pdfContext.beginPDFPage(nil)
         
         var yPosition: CGFloat = pageSize.height - margin
@@ -180,7 +179,7 @@ class PDFExportService {
         currentY -= 35
         
         // Table rows
-        for (index, service) in quotation.services.enumerated() {
+        for (index, item) in quotation.items.enumerated() {
             // Alternate row background
             if index % 2 == 0 {
                 context.setFillColor(NSColor.controlBackgroundColor.withAlphaComponent(0.3).cgColor)
@@ -190,9 +189,9 @@ class PDFExportService {
             xPosition = margin + 10
             let rowData = [
                 "\(index + 1)",
-                service.name,
-                "1", // Assuming quantity is 1 for now
-                String(format: "%.2f", service.price)
+                item.serviceItem.name,
+                "\(item.quantity)",
+                String(format: "%.2f", item.totalPrice)
             ]
             
             for (colIndex, data) in rowData.enumerated() {
@@ -234,8 +233,8 @@ class PDFExportService {
         currentY -= 20
         
         // Tax
-        let taxLabel = NSAttributedString(string: "Tax (18%):", attributes: regularAttributes)
-        let taxValue = NSAttributedString(string: String(format: "₹ %.2f", quotation.tax), attributes: regularAttributes)
+        let taxLabel = NSAttributedString(string: "Tax (\(String(format: "%.0f", quotation.taxPercentage))%):", attributes: regularAttributes)
+        let taxValue = NSAttributedString(string: String(format: "₹ %.2f", quotation.taxAmount), attributes: regularAttributes)
         
         taxLabel.draw(at: CGPoint(x: rightAlign, y: currentY))
         taxValue.draw(at: CGPoint(x: rightAlign + 80, y: currentY))
