@@ -2,223 +2,257 @@
 
 A professional macOS application for creating detailed event planning quotations, specifically designed for Telugu wedding planners, photographers, and event management companies in Andhra Pradesh and Telangana.
 
-## 🎯 Features
+## 🌟 Features
 
-### Core Functionality
-- **Event Management**: Create and manage multiple event quotations
-- **Service Catalog**: Comprehensive library of Telugu-specific event services
-- **Dynamic Pricing**: Real-time calculation with taxes, discounts, and regional pricing
-- **Professional Export**: Generate formatted quotations for clients
-- **Data Persistence**: Local storage with UserDefaults integration
-- **Search & Filter**: Advanced filtering by category, Telugu-specific services
+### 🎯 Core Functionality
+
+* **Event Management**: Create and manage multiple event quotations with Telugu cultural context
+* **AI-Powered Recommendations**: Intelligent service suggestions based on event type, guest count, and budget
+* **Regional Pricing Intelligence**: Tier-based pricing for major Telugu cities (Hyderabad, Visakhapatnam, Vijayawada, etc.)
+* **Cultural Authenticity**: Traditional Telugu ceremony services and authentic cuisine options
+* **Professional Export**: Generate formatted quotations in English and Telugu contexts
+* **Data Persistence**: Local storage with UserDefaults integration
+
+### 🤖 AI-Powered Intelligence
+
+* **Smart Service Recommendations**: Context-aware suggestions based on:
+  - Event type (Wedding, Engagement, Housewarming, etc.)
+  - Guest count and venue size
+  - Budget constraints and preferences
+  - Seasonal considerations
+  - Regional traditions
+
+* **Budget Optimization**: AI-driven cost optimization while maintaining quality
+* **Cultural Intelligence**: Recommendations for traditional Telugu ceremonies:
+  - Pellikuthuru/Pellikoduku ceremonies
+  - Mangalasnanam rituals
+  - Kanyadanam arrangements
+  - Traditional music and dance performances
+
+### 🏛️ Telugu Cultural Services
+
+#### Traditional Ceremonies
+* **Wedding Rituals**: Mangalasnanam, Kanyadanam, Saptapadi, Talambralu
+* **Pre-Wedding**: Pellikuthuru, Pellikoduku, Mehendi, Sangeet
+* **Post-Wedding**: Grihapravesh, Reception arrangements
+* **Religious**: Kalyanam, Upanayanam, Annaprasana, Cradle ceremonies
+
+#### Authentic Cuisine
+* **Traditional Meals**: Andhra/Telangana thali, Pulihora, Gongura dishes
+* **Sweets & Snacks**: Pootharekulu, Bobbatlu, Murukku, Mixture
+* **Regional Specialties**: Hyderabadi Biryani, Rayalaseema spicy dishes
+* **Beverages**: Traditional drinks, Panakam, Majjiga
+
+#### Entertainment & Arts
+* **Classical Performances**: Kuchipudi dance, Carnatic music
+* **Folk Entertainment**: Dhimsa, Kolatam, Burrakatha
+* **Modern Fusion**: DJ with Telugu hits, Bollywood-Telugu mix
+* **Traditional Instruments**: Nadaswaram, Tavil, Mridangam
+
+### 🏙️ Regional Pricing Intelligence
+
+#### Tier 1 Cities (Premium Pricing)
+* **Hyderabad**: Tech hub, luxury venues, international standards
+* **Visakhapatnam**: Coastal city, beach venues, corporate events
+
+#### Tier 2 Cities (Standard Pricing)
+* **Vijayawada**: Commercial center, traditional venues
+* **Guntur**: Agricultural hub, family-oriented events
+* **Warangal**: Historical city, cultural events
+* **Tirupati**: Pilgrimage center, religious ceremonies
+
+#### Tier 3 Cities (Budget-Friendly)
+* **Nellore**: Coastal town, intimate gatherings
+* **Kurnool**: Traditional settings, local vendors
+* **Rajahmundry**: Cultural heritage, classical events
+* **Karimnagar**: Rural charm, authentic experiences
 
 ### 📸 Photography & Videography Services
-Based on real-world Telugu wedding requirements:
-- Traditional Telugu wedding photography with ritual coverage
-- Candid photography with professional equipment
-- 4K cinematic video recording
-- Drone photography and videography
-- Wedding albums and promotional videos
-- Live streaming for remote family members
 
-### 🎉 Telugu-Specific Event Categories
+* **Traditional Photography**: Ritual documentation, family portraits
+* **Candid Photography**: Natural moments, emotional captures
+* **4K Cinematic Videos**: Professional wedding films
+* **Drone Coverage**: Aerial venue shots, grand entrances
+* **Live Streaming**: For distant relatives, pandemic considerations
+* **Traditional Albums**: Physical albums with Telugu captions
 
-#### Traditional Wedding Services
-- **Mandap & Decoration**: Traditional Telugu mandap, Kalyanam mandap with pillars
-- **Religious Services**: Purohit/Priest, Sacred fire setup, Ashtamangala items
-- **Traditional Music**: Nadaswaram & Thavil, Classical dance performances
-- **Ceremonial Items**: Mangalsutra making, Kalash decoration, Coconut breaking ceremony
+### 🎉 Comprehensive Service Categories
 
-#### Regional Catering
-- **Telugu Traditional Meals**: Authentic Telugu cuisine with traditional items
-- **Andhra Spicy Menu**: Spicy Andhra style dishes and curries
-- **Hyderabadi Biryani**: Authentic Hyderabadi biryani with raita and shorba
-- **South Indian Breakfast**: Traditional breakfast with idli, dosa, vada
-- **Sweet Counter**: Traditional sweets including laddu, mysore pak
-- **Live Counters**: Dosa counter, Paan counter
+1. **Photography & Videography** (12 services)
+2. **Equipment & Technology** (15 services)
+3. **Catering & Food** (18 services)
+4. **Decoration & Ambiance** (12 services)
+5. **Entertainment & Performances** (10 services)
+6. **Venue & Logistics** (8 services)
+7. **Staffing & Coordination** (8 services)
+8. **Transportation** (6 services)
+9. **Flowers & Garlands** (8 services)
+10. **Traditional Services** (8 services)
+11. **Beauty & Wellness** (6 services)
+12. **Miscellaneous** (9 services)
 
-#### Transportation & Procession
-- **Traditional Entries**: Horse for groom entry, Elephant for procession
-- **Decorated Vehicles**: Luxury car decoration for bride and groom
-- **Guest Transportation**: Bus transportation for guests
-
-#### Flowers & Traditional Items
-- **Bridal Flower Jewelry**: Traditional flower jewelry sets
-- **Groom's Sehra**: Traditional flower sehra
-- **Garland Exchange**: Special garlands for ceremony
-- **Jasmine Strings**: Traditional jasmine flower strings
-- **Marigold Decoration**: Extensive marigold decorations
+**Total: 120+ culturally authentic services**
 
 ### 💰 Advanced Pricing Features
-- **Regional Pricing**: Automatic price adjustments for different cities
-  - Tier 1 cities (Hyderabad, Visakhapatnam, Vijayawada): +20%
-  - Tier 2 cities (Guntur, Nellore, Tirupati, etc.): Standard pricing
-  - Tier 3 cities and rural areas: -20%
-- **Percentage-based discounts**
-- **Additional fees and charges**
-- **GST calculations (18% standard)**
-- **Currency formatting in INR**
-- **Real-time total updates**
 
-### 🏛️ Venue Categories
-- **Traditional Venues**: Kalyana Mandapam, Wedding halls
-- **Modern Facilities**: Garden venues, AC & cooling, Generator backup
-- **Support Services**: Parking arrangements, Security personnel
+* **Dynamic Pricing**: Real-time calculations based on city tier
+* **Seasonal Adjustments**: Peak season (wedding months) pricing
+* **Package Discounts**: Bundle deals for comprehensive services
+* **Tax Calculations**: GST compliance for Indian market
+* **Currency Formatting**: Professional INR formatting
+* **Budget Tracking**: Real-time total updates with recommendations
 
-### 🎭 Entertainment & Cultural Services
-- **Traditional Music**: Nadaswaram & Thavil ensembles
-- **Modern Entertainment**: DJ with sound system, Live bands
-- **Cultural Performances**: Bharatanatyam, Kuchipudi dance
-- **Ceremonial Music**: Dhol players for baraat
-- **Event Coordination**: Professional anchors and MCs
+## 🛠️ Technical Requirements
 
-### 👥 Staffing & Coordination
-- **Wedding Coordination**: Professional wedding planners
-- **Beauty Services**: Makeup artists, Mehendi artists, Hair styling
-- **Service Staff**: Waitstaff, Security personnel
-- **Traditional Services**: Saree draping, Traditional grooming
-
-## 🛠️ Technical Features
-
-### Data Models
-- **ServiceItem**: Comprehensive service catalog with Telugu-specific flags
-- **Quotation**: Complete quotation management with client details
-- **QuoteItem**: Individual service items with custom pricing
-- **EventType**: Telugu event types with native names
-
-### User Interface
-- **SwiftUI**: Modern, responsive interface
-- **Search & Filter**: Advanced filtering capabilities
-- **Export Functionality**: Professional quotation formatting
-- **Statistics Dashboard**: Revenue tracking and analytics
-
-### Regional Intelligence
-- **City-based Pricing**: Automatic price adjustments
-- **Telugu Language Support**: Event names in Telugu script
-- **Cultural Awareness**: Traditional service recommendations
-
-## 📱 System Requirements
-
-- **macOS**: 14.0 or later
-- **Xcode**: 15.0 or later
-- **Swift**: 5.9 or later
-- **Architecture**: Apple Silicon (M1/M2) or Intel
+* **macOS**: 13.0 or later (Ventura+)
+* **Architecture**: Apple Silicon (M1/M2) or Intel Mac
+* **Development**: Xcode 15.0 or later
+* **Frameworks**: SwiftUI, AppKit, Combine, Foundation
 
 ## 🚀 Installation & Setup
 
-1. **Clone the Repository**
-   ```bash
-   git clone https://github.com/DIRAKHIL/QUOTE_GEN.git
-   cd QUOTE_GEN
-   ```
+### For Users
+1. **Download**: Get the latest release from GitHub
+2. **Install**: Drag to Applications folder
+3. **Launch**: Open S-Quote from Applications
+4. **Setup**: Configure your business details and pricing
 
-2. **Open in Xcode**
-   ```bash
-   open QUOTE_GEN.xcodeproj
-   ```
+### For Developers
+```bash
+# Clone the repository
+git clone https://github.com/DIRAKHIL/QUOTE_GEN.git
+cd QUOTE_GEN
 
-3. **Build and Run**
-   - Select your target device/simulator
-   - Press `Cmd + R` to build and run
+# Open in Xcode
+open QUOTE_GEN.xcodeproj
 
-## 📊 Usage Guide
+# Build and run (⌘+R)
+```
 
-### Creating a New Quotation
-1. Tap the "+" button in the top-right corner
-2. Fill in client information and event details
-3. Select event type (automatically suggests Telugu-specific services)
-4. Add services from the comprehensive catalog
-5. Adjust pricing, discounts, and taxes
-6. Add notes and finalize the quotation
+## 📱 Usage Guide
 
-### Service Management
-- **Browse by Category**: Filter services by type
-- **Telugu Filter**: Show only traditional Telugu services
-- **Search**: Find services by name or description
-- **Custom Pricing**: Override default prices for specific clients
+### Creating Your First Quotation
+1. **Launch** the application
+2. **Click** the "+" button to create new quotation
+3. **Fill** client details (name, contact, event type)
+4. **Select** event date and venue city
+5. **Add** services using the AI recommendations or manual selection
+6. **Adjust** quantities and customize pricing
+7. **Review** the total with taxes and discounts
+8. **Export** professional quotation for client
 
-### Export & Sharing
-- Generate professional PDF quotations
-- Share via email or messaging apps
-- Print-ready formatting with company branding
+### AI Recommendations Workflow
+1. **Input** basic event details (type, guests, budget)
+2. **Review** AI-suggested services based on Telugu traditions
+3. **Customize** recommendations to client preferences
+4. **Optimize** budget using AI-powered cost analysis
+5. **Apply** selected recommendations to quotation
 
-## 🎨 Customization
+### Regional Customization
+1. **Select** client's city from dropdown
+2. **Automatic** tier-based pricing adjustment
+3. **Regional** service recommendations
+4. **Local** vendor suggestions (future feature)
 
-### Adding New Services
-1. Open `Models.swift`
-2. Add new `ServiceItem` to the `getAllServices()` method
-3. Set appropriate category and Telugu-specific flag
-4. Include regional pricing considerations
+## 🏗️ Architecture
 
-### Regional Pricing
-Modify the `getRegionalPriceMultiplier` function in `QuotationManager.swift` to add new cities or adjust pricing tiers.
+### MVVM Pattern with SwiftUI
+```
+├── Models/
+│   ├── ServiceItem.swift          # Service data structure
+│   ├── Quotation.swift           # Quotation model
+│   ├── QuoteItem.swift           # Individual quote items
+│   └── EventType.swift           # Event categorization
+├── Views/
+│   ├── QuotationListView.swift   # Main dashboard
+│   ├── QuotationDetailView.swift # Quotation editor
+│   ├── ServiceSelectorView.swift # Service catalog
+│   └── AIRecommendationsView.swift # AI suggestions
+├── Managers/
+│   └── QuotationManager.swift    # Business logic & persistence
+├── Services/
+│   └── AIRecommendationEngine.swift # AI intelligence
+└── Resources/
+    └── ServiceCatalog.swift      # Telugu service database
+```
 
-### Event Types
-Add new event types in the `EventType` enum with corresponding Telugu names.
+### Key Components
+* **QuotationManager**: Core business logic, data persistence
+* **AIRecommendationEngine**: Cultural intelligence, pricing optimization
+* **ServiceCatalog**: 120+ Telugu-specific services
+* **Regional Pricing**: Tier-based city pricing system
 
-## 📈 Analytics & Reporting
+## 🎨 Design Philosophy
 
-- **Total Revenue**: Track finalized quotations
-- **Average Quotation Value**: Business performance metrics
-- **Popular Services**: Most requested services analysis
-- **Regional Performance**: City-wise business insights
+### Cultural Sensitivity
+* **Authentic Services**: Real Telugu wedding traditions
+* **Regional Variations**: Andhra vs Telangana customs
+* **Language Support**: English with Telugu context
+* **Visual Design**: Modern UI with cultural elements
 
-## 🔒 Data Privacy
+### User Experience
+* **Intuitive Interface**: Easy for non-tech users
+* **Quick Setup**: Minimal learning curve
+* **Professional Output**: Client-ready quotations
+* **Offline Capability**: Works without internet
 
-- All data stored locally using UserDefaults
-- No cloud synchronization (privacy-first approach)
-- Client information encrypted at rest
-- GDPR compliant data handling
+## 🔮 Future Enhancements
+
+### Planned Features
+- [ ] **Multi-language Support**: Full Telugu interface
+- [ ] **Vendor Integration**: Direct vendor contact system
+- [ ] **Calendar Integration**: Event scheduling and reminders
+- [ ] **Client Portal**: Online quotation sharing
+- [ ] **Payment Integration**: UPI/digital payment options
+- [ ] **Inventory Management**: Equipment tracking
+- [ ] **Analytics Dashboard**: Business insights and trends
+- [ ] **Mobile Companion**: iOS app for on-site updates
+
+### AI Enhancements
+- [ ] **Machine Learning**: Learn from user preferences
+- [ ] **Market Intelligence**: Dynamic pricing based on demand
+- [ ] **Trend Analysis**: Popular service combinations
+- [ ] **Seasonal Predictions**: Optimal pricing strategies
 
 ## 🤝 Contributing
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+We welcome contributions from the Telugu event planning community!
 
-## 📝 License
+### How to Contribute
+1. **Fork** the repository
+2. **Create** a feature branch (`git checkout -b feature/amazing-feature`)
+3. **Commit** your changes (`git commit -m 'Add amazing feature'`)
+4. **Push** to the branch (`git push origin feature/amazing-feature`)
+5. **Open** a Pull Request
+
+### Areas for Contribution
+* **Service Catalog**: Add more regional services
+* **Pricing Data**: Update market rates
+* **Cultural Features**: Traditional ceremony details
+* **Localization**: Telugu language support
+* **Testing**: User experience feedback
+
+## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+## 📞 Contact & Support
 
-- Telugu wedding traditions and customs
-- Event planning professionals in Andhra Pradesh and Telangana
-- Photography and videography specialists
-- Traditional music and cultural performers
+### Development Team
+* **Lead Developer**: Akhil Maddali
+* **GitHub**: [@DIRAKHIL](https://github.com/DIRAKHIL)
+* **Repository**: [QUOTE_GEN](https://github.com/DIRAKHIL/QUOTE_GEN)
 
-## 📞 Support
+### Community
+* **Issues**: Report bugs and request features on GitHub
+* **Discussions**: Join community discussions for ideas and feedback
+* **Documentation**: Comprehensive guides and API documentation
 
-For support, email support@squote.com or create an issue in this repository.
-
-## 🗺️ Roadmap
-
-### Version 2.0 (Planned)
-- [ ] Cloud synchronization
-- [ ] Multi-language support (Telugu, Hindi, English)
-- [ ] Vendor management system
-- [ ] Calendar integration
-- [ ] Payment tracking
-- [ ] Client portal
-- [ ] Mobile app (iOS/Android)
-- [ ] Advanced analytics dashboard
-- [ ] Template management
-- [ ] Bulk operations
-
-### Version 2.1 (Future)
-- [ ] AI-powered service recommendations
-- [ ] Automated pricing optimization
-- [ ] Integration with popular accounting software
-- [ ] Multi-currency support
-- [ ] Advanced reporting and insights
-- [ ] CRM integration
-- [ ] Social media integration
-- [ ] Review and rating system
+### Business Inquiries
+For commercial licensing, custom development, or partnership opportunities, please reach out through GitHub issues or discussions.
 
 ---
 
-**Made with ❤️ for Telugu Event Planners**
+**Made with ❤️ for the Telugu event planning community**
 
-*Specializing in Telugu Weddings | Andhra Pradesh & Telangana*
+*Bringing technology to traditional celebrations while preserving cultural authenticity*
