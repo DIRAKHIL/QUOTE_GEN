@@ -70,7 +70,7 @@ struct QuotationListView: View {
                 Spacer()
                 
                 VStack(alignment: .trailing, spacing: 4) {
-                    Text("₹\(quotationManager.getTotalRevenue(), specifier: "%.0f")")
+                    Text("₹\(String(format: "%.0f", quotationManager.getTotalRevenue()))")
                         .font(.title2)
                         .fontWeight(.bold)
                         .foregroundColor(.green)
