@@ -13,5 +13,15 @@ struct QUOTE_GENApp: App {
         WindowGroup {
             ContentView()
         }
+        .windowStyle(.hiddenTitleBar)
+        .windowToolbarStyle(.unified)
+        .commands {
+            CommandGroup(replacing: .newItem) {
+                Button("New Quotation") {
+                    // Handle new quotation
+                }
+                .keyboardShortcut("n", modifiers: .command)
+            }
+        }
     }
 }
